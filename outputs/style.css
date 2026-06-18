@@ -516,7 +516,7 @@ main:not(:has(.faq-section:target)) #basic,
   }
 
   .hero h1 {
-    font-size: 40px;
+    font-size: 34px;
   }
 
   .eyebrow {
