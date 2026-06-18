@@ -1,0 +1,624 @@
+:root {
+  --blue: #2375fa;
+  --blue-deep: #1265ea;
+  --text: #242a30;
+  --muted: #647084;
+  --line: #dce5f2;
+  --line-blue: rgba(255, 255, 255, 0.34);
+  --soft: #f3f7fd;
+  --soft-strong: #e9f1ff;
+  --white: #ffffff;
+  --accent: #2375fa;
+  --content: 1120px;
+  --wide: 1360px;
+  --texture: url("https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png?width=256&height=256");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: rgb(252, 252, 252);
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  width: min(calc(100% - 80px), var(--wide));
+  margin: 0 auto;
+  background-color: var(--blue);
+  border-radius: 0 0 8px 8px;
+  color: var(--white);
+  padding: 80px 0 128px;
+}
+
+.hero::before,
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--texture);
+  background-size: 256px 256px;
+  background-repeat: repeat;
+  opacity: 0.2;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 80px;
+  align-items: start;
+  width: min(100% - 112px, var(--wide));
+  margin: 0 auto;
+}
+
+.hero__inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.content,
+.faq-wrap,
+.cta__inner {
+  width: min(100% - 48px, var(--content));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 26px 0 74px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 54px;
+  line-height: 1.36;
+  font-weight: 300;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+.hero__copy {
+  padding-top: 22px;
+}
+
+.hero__copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 17px;
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+.hero__meta {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+.finder {
+  background: rgb(252, 252, 252);
+  border-bottom: 0;
+  padding: 54px 0 38px;
+}
+
+.finder .content {
+  position: relative;
+  z-index: 2;
+}
+
+.search {
+  display: none;
+}
+
+.search input {
+  width: 100%;
+  height: 54px;
+  padding: 0 18px 0 48px;
+  color: var(--text);
+  background: #f8fbff;
+  border: 1px solid #d7e4f6;
+  border-radius: 0;
+  outline: none;
+  font: inherit;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.search input:focus {
+  border-color: rgba(34, 117, 250, 0.55);
+  box-shadow: 0 0 0 4px rgba(34, 117, 250, 0.08);
+}
+
+.search__icon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(34, 117, 250, 0.42);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search__icon::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  width: 7px;
+  height: 2px;
+  background: rgba(34, 117, 250, 0.42);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.tags {
+  margin: 0;
+}
+
+.tags__label,
+.intro__title {
+  margin: 0;
+  color: #1b3764;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.tags__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.tags__list {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid #2f3945;
+}
+
+.tags__list a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 14px 12px;
+  color: #2f3945;
+  background: var(--white);
+  border-right: 1px solid #2f3945;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 300;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.tags__list a:last-child {
+  border-right: 0;
+}
+
+.tags__list a:hover,
+.tags__list a.is-active {
+  color: var(--white);
+  background: #303944;
+}
+
+.tags__list a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -11px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 11px solid #303944;
+  transform: translateX(-50%);
+}
+
+main:has(.faq-section:target) .tags__list a.is-active {
+  color: #2f3945;
+  background: var(--white);
+}
+
+main:has(.faq-section:target) .tags__list a.is-active::after {
+  display: none;
+}
+
+main:has(#basic:target) .tags__list a[href="#basic"],
+main:has(#pricing:target) .tags__list a[href="#pricing"],
+main:has(#security:target) .tags__list a[href="#security"],
+main:has(#process:target) .tags__list a[href="#process"],
+main:has(#integration:target) .tags__list a[href="#integration"],
+main:has(#event:target) .tags__list a[href="#event"],
+main:has(#support:target) .tags__list a[href="#support"] {
+  color: var(--white);
+  background: #303944;
+}
+
+main:has(#basic:target) .tags__list a[href="#basic"]::after,
+main:has(#pricing:target) .tags__list a[href="#pricing"]::after,
+main:has(#security:target) .tags__list a[href="#security"]::after,
+main:has(#process:target) .tags__list a[href="#process"]::after,
+main:has(#integration:target) .tags__list a[href="#integration"]::after,
+main:has(#event:target) .tags__list a[href="#event"]::after,
+main:has(#support:target) .tags__list a[href="#support"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -11px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 11px solid #303944;
+  transform: translateX(-50%);
+}
+
+.intro {
+  display: none;
+}
+
+.quick-links {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quick-links a {
+  display: block;
+  padding: 10px 0;
+  color: #4d5f78;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  transition: color 180ms ease;
+}
+
+.quick-links a::before {
+  content: "-";
+  margin-right: 9px;
+  color: var(--accent);
+}
+
+.quick-links a:hover {
+  color: var(--accent);
+}
+
+.faq-wrap {
+  padding: 24px 0 96px;
+}
+
+.faq-section {
+  scroll-margin-top: 28px;
+}
+
+.faq-section + .faq-section {
+  margin-top: 0;
+}
+
+.faq-section h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.faq-list {
+  border-top: 1px solid #d7dde5;
+}
+
+.faq-section:target .faq-list {
+  border-top-color: rgba(35, 117, 250, 0.72);
+  box-shadow: inset 4px 0 0 rgba(35, 117, 250, 0.9);
+}
+
+.faq-section:target .faq-item summary {
+  color: var(--accent);
+}
+
+.faq-section:target .faq-item summary::before {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.faq-item {
+  border-bottom: 1px solid #d7dde5;
+}
+
+.faq-item summary {
+  position: relative;
+  display: block;
+  min-height: 72px;
+  padding: 22px 64px 22px 76px;
+  color: #3f4954;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: "Q";
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #6b7480;
+  border-radius: 50%;
+  color: #3f4954;
+  font-family: "system-ui", -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: center;
+  transform: translateY(-50%);
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  width: 28px;
+  height: 28px;
+  color: #303944;
+  border-radius: 50%;
+  font-size: 34px;
+  font-weight: 200;
+  line-height: 25px;
+  text-align: center;
+  transform: translateY(-50%);
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.faq-item summary:hover::after {
+  color: var(--accent);
+  background: transparent;
+}
+
+.faq-item[open] summary::after {
+  content: "×";
+  color: #303944;
+  font-size: 28px;
+}
+
+.faq-answer {
+  padding: 0 72px 28px 76px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  width: min(calc(100% - 80px), var(--wide));
+  margin: 0 auto 40px;
+  background-color: var(--blue);
+  border-radius: 8px;
+  color: var(--white);
+  padding: 88px 24px 92px;
+  text-align: center;
+}
+
+.cta .eyebrow {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  font-weight: 300;
+}
+
+.cta h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.45;
+  font-weight: 400;
+  font-family: "system-ui", -apple-system, "system-ui", "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif, "System Default", sans-serif;
+}
+
+.cta p:not(.eyebrow) {
+  position: relative;
+  z-index: 1;
+  margin: 16px auto 28px;
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 14px;
+}
+
+.mobile-break {
+  display: none;
+}
+
+.cta__button {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 152px;
+  min-height: 44px;
+  padding: 10px 22px;
+  color: var(--blue);
+  background: var(--white);
+  border: 1px solid var(--white);
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.cta__button:hover {
+  color: var(--white);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 14px;
+  }
+
+  .hero {
+    width: min(calc(100% - 32px), var(--wide));
+    padding: 58px 0 96px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .hero__inner {
+    width: min(100% - 48px, var(--wide));
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .content,
+  .faq-wrap,
+  .cta__inner {
+    width: min(100% - 40px, var(--content));
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .eyebrow {
+    margin: 24px 0 44px;
+    font-size: 13px;
+  }
+
+  .hero__copy {
+    padding-top: 0;
+  }
+
+  .hero__copy p {
+    font-size: 14px;
+  }
+
+  .finder {
+    padding: 34px 0 24px;
+  }
+
+  .finder .content {
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+
+  .search input {
+    height: 48px;
+    font-size: 13px;
+  }
+
+  .tags__list {
+    min-width: 760px;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .tags__list a {
+    min-height: 48px;
+    padding-inline: 12px;
+  }
+
+  .intro {
+    padding: 34px 0 36px;
+  }
+
+  .faq-wrap {
+    padding: 18px 0 72px;
+  }
+
+  .faq-section + .faq-section {
+    margin-top: 48px;
+  }
+
+  .faq-section h2 {
+    font-size: 17px;
+  }
+
+  .faq-item summary {
+    min-height: 66px;
+    padding: 18px 48px 18px 58px;
+    font-size: 13px;
+  }
+
+  .faq-item summary::before {
+    left: 8px;
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+    line-height: 32px;
+  }
+
+  .faq-item summary::after {
+    right: 8px;
+    font-size: 30px;
+  }
+
+  .faq-answer {
+    padding: 0 48px 22px 58px;
+    font-size: 13px;
+  }
+
+  .cta {
+    width: min(calc(100% - 32px), var(--wide));
+    padding: 68px 20px 72px;
+    margin-bottom: 24px;
+  }
+
+  .cta h2 {
+    font-size: 24px;
+  }
+
+  .mobile-break {
+    display: block;
+  }
+}
