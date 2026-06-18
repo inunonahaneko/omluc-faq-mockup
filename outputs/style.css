@@ -325,10 +325,12 @@ main:has(#support:target) .tags__list a[href="#support"]::after {
 
 .faq-section {
   scroll-margin-top: 28px;
+  display: none;
 }
 
-.faq-section + .faq-section {
-  margin-top: 0;
+main:not(:has(.faq-section:target)) #basic,
+.faq-section:target {
+  display: block;
 }
 
 .faq-section h2 {
@@ -341,20 +343,6 @@ main:has(#support:target) .tags__list a[href="#support"]::after {
 
 .faq-list {
   border-top: 1px solid #d7dde5;
-}
-
-.faq-section:target .faq-list {
-  border-top-color: rgba(35, 117, 250, 0.72);
-  box-shadow: inset 4px 0 0 rgba(35, 117, 250, 0.9);
-}
-
-.faq-section:target .faq-item summary {
-  color: var(--accent);
-}
-
-.faq-section:target .faq-item summary::before {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 .faq-item {
